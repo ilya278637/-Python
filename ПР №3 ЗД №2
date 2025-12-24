@@ -1,0 +1,8 @@
+my_list = [100, 2, 3]
+печать(my_list)
+my_tuple = (100, 2, 3)
+печать(my_tuple)
+my_string = "кошка"
+печать(my_string)
+my_string[0] = 'b'
+напечатать("my_string[0] = 'b'")
