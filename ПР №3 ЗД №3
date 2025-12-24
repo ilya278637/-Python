@@ -1,0 +1,11 @@
+num1 = input('Введите первое число: "")
+num2 = input('Введите второе число: "")
+try:
+  num1n = int(num1)
+  num2n = int(num2)
+  sum = numin + num2n
+  print('сумма чисел' , sum )
+except ValueError:
+  print("Ошибка: Введены некорректные данные.")
+  sum = num1n + num2n
+  print('Сумма чисел:', sum)
