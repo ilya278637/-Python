@@ -1,0 +1,10 @@
+bull = 10
+cow = 5
+calf = 0.5
+total_money = 100
+
+for bulls in range(total_money // bull + 1):
+    for cows in range(total_money // cow + 1):
+        for calves in range(int(total_money // calf) + 1):
+            if bulls * bull + cows * cow + calves * calf == total_money:
+                print(f"Быков: {bulls}, Коров: {cows}, Телят: {calves}")
