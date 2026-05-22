@@ -1,0 +1,20 @@
+import random
+
+matrix = [[random.randint(1, 50) for _ in range(random.randint(2, 6))] for _ in range(5)]
+
+print("Вложенный список:")
+for row in matrix:
+    print(row)
+
+row_sums = [sum(row) for row in matrix]
+print("\nСуммы каждого подсписка:", row_sums)
+
+total_sum = sum(row_sums)
+print("Общая сумма всех элементов:", total_sum)
+
+max_sum = max(row_sums)
+max_index = row_sums.index(max_sum)
+
+print(f"\nСтрока с максимальной суммой: {matrix[max_index]}")
+print(f"Индекс этой строки: {max_index}")
+print(f"Сумма этой строки: {max_sum}")
