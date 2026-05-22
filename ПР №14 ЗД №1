@@ -1,0 +1,17 @@
+import random
+
+nested_list = [[random.randint(1, 100) for _ in range(4)] for _ in range(3)]
+
+max_value = -1
+row_index = 0
+col_index = 0
+
+for i in range(len(nested_list)):
+    for j in range(len(nested_list[i])):
+        if nested_list[i][j] > max_value:
+            max_value = nested_list[i][j]
+            row_index = i
+            col_index = j
+
+print(f"Максимальный элемент: {max_value}")
+print(f"Позиция: строка {row_index}, столбец {col_index}")
