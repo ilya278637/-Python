@@ -1,0 +1,9 @@
+n = int(input("Введите натуральное число: "))
+
+symvol = []
+
+for i in range(n):
+    a = input("Введите содержимое строчки: ")
+    symvol.extend(list(a))
+
+print(symvol)
