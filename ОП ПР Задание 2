@@ -1,0 +1,10 @@
+class Ghoul:
+    def __init__(self):
+        self.name = "Упырь"
+
+    def introduce(self):
+        print(f"Я {self.name}, и я хочу кушать!")
+
+ghoul = Ghoul()
+
+ghoul.introduce()
