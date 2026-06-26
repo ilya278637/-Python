@@ -1,0 +1,46 @@
+import random
+
+class Zombie(Monster):
+    def __init__(self, name):
+        super().__init__(name, 120, 10)
+
+    def take_damage(self, damage):
+        self.set_hp(self.get_hp() - damage)
+        print(f"{self.get_name()} теряет конечность! Получено: {damage}. HP: {self.get_hp()}")
+
+
+class Vampire(Monster):
+    def __init__(self, name):
+        super().__init__(name, 80, 15)
+
+    def take_damage(self, damage):
+        absorbed = 5
+        actual_damage = max(0, damage - absorbed)
+        self.set_hp(self.get_hp() - actual_damage)
+        print(f"{self.get_name()} поглощает {absorbed} урона! Получено: {actual_damage}. HP: {self.get_hp()}")
+
+
+class Ghost(Monster):
+    def __init__(self, name):
+        super().__init__(name, 60, 20)
+
+    def take_damage(self, damage):
+        evade_chance = 0.3
+        if random.random() < evade_chance:
+            print(f"{self.get_name()} уклоняется от удара! Получено: 0. HP: {self.get_hp()}")
+        else:
+            self.set_hp(self.get_hp() - damage)
+            print(f"{self.get_name()} не смог уклониться. Получено: {damage}. HP: {self.get_hp()}")
+
+
+class Werewolf(Monster):
+    def __init__(self, name):
+        super().__init__(name, 100, 25)
+        self._transformed = False
+
+    def take_damage(self, damage):
+        self.set_hp(self.get_hp() - damage)
+        if self.get_hp() < 50 and not self._transformed:
+            print(f"{self.get_name()} трансформируется в чудовищную форму!")
+            self._transformed = True
+        print(f"{self.get_name()} получил урон. HP: {self.get_hp()}")
