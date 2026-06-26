@@ -1,0 +1,81 @@
+def run_game():
+    hunter = Hunter("Ван Хельсинг")
+    hunter.add_weapon(SilverSword())
+    hunter.add_weapon(HolyWater())
+    hunter.add_weapon(CrossbowBolt())
+
+    monsters = [
+        Zombie("Зомби-страж"),
+        Vampire("Дракула"),
+        Ghost("Призрачный страж"),
+        Werewolf "Оборотень-вожак"
+    ]
+
+
+    monsters = [
+        Zombie("Зомби-страж"),
+        Vampire("Дракула"),
+        Ghost("Призрачный страж"),
+        Werewolf("Оборотень-вожак")
+    ]
+
+    for monster in monsters:
+        print(f"\n--- Бой с {monster.get_name()} ---")
+        while monster.is_alive() and hunter.is_alive():
+            hunter.show_inventory()
+            try:
+                choice = int(input("Выберите номер оружия для атаки: ")) - 1
+            except ValueError:
+                print("Пожалуйста, введите число.")
+                continue
+
+            hunter.attack(choice, monster)
+
+            if monster.is_alive():
+                print(f"{monster.get_name()} атакует Ван Хельсинга!")
+                monster.attack_hunter(hunter)
+                hunter.show_status()
+
+        if not hunter.is_alive():
+            print("\nВан Хельсинг пал в бою… Замок остался во власти нечисти.")
+            return
+
+        print(f"{monster.get_name()} повержен!")
+
+    print("\nПобеда! Ван Хельсинг очистил замок от всей нечисти!")
+
+
+def run_game_auto():
+    hunter = Hunter("Ван Хельсинг")
+    hunter.add_weapon(SilverSword())
+    hunter.add_weapon(HolyWater())
+    hunter.add_weapon(CrossbowBolt())
+
+    monsters = [
+        Zombie("Зомби-страж"),
+        Vampire("Дракула"),
+        Ghost("Призрачный страж"),
+        Werewolf("Оборотень-вожак")
+    ]
+
+    for monster in monsters:
+        print(f"\n--- Бой с {monster.get_name()} ---")
+        weapon_index = 0  
+        while monster.is_alive() and hunter.is_alive():
+            hunter.attack(weapon_index, monster)
+            if monster.is_alive():
+                print(f"{monster.get_name()} атакует Ван Хельсинга!")
+                monster.attack_hunter(hunter)
+                print(f"[Ван Хельсинг] HP: {hunter.get_hp()}")
+
+        if not hunter.is_alive():
+            print("\nВан Хельсинг пал в бою… Замок остался во власти нечисти.")
+            return
+
+        print(f"{monster.get_name()} повержен!")
+
+    print("\nПобеда! Ван Хельсинг очистил замок от всей нечисти!")
+
+
+if __name__ == "__main__":
+    run_game_auto()
