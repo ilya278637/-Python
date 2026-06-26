@@ -1,0 +1,36 @@
+class Weapon:
+    def __init__(self, name):
+        self.name = name
+
+    def use(self, monster):
+        pass
+
+
+class SilverSword(Weapon):
+    def __init__(self):
+        super().__init__("Серебряный меч")
+
+    def use(self, monster):
+        damage = 30
+        print(f"Ван Хельсинг атакует {monster.get_name()} серебряным мечом! Урон: {damage}")
+        monster.take_damage(damage)
+
+
+class HolyWater(Weapon):
+    def __init__(self):
+        super().__init__("Святая вода")
+
+    def use(self, monster):
+        damage = 20
+        print(f"Ван Хельсинг бросает святую воду в {monster.get_name()}! Урон: {damage}")
+        monster.take_damage(damage)
+
+
+class CrossbowBolt(Weapon):
+    def __init__(self):
+        super().__init__("Арбалет с болтом")
+
+    def use(self, monster):
+        damage = 25
+        print(f"Ван Хельсинг стреляет из арбалета в {monster.get_name()}! Урон: {damage}")
+        monster.take_damage(damage)
